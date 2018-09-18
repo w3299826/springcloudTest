@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hello.service.TestMapper">
+  
+   <!-- 获取多个案件退案人审批状态信息 -->
+  <select id="getinfo"  resultType="java.lang.String" >
+	 SELECT C_BH,cid=IDENTITY(12) INTO #dachui FROM YWST..T_MS_AJ SELECT C_BH FROM #dachui WHERE cid&gt;20 AND
+	 cid &lt;=30
+	DROP TABLE #dachui
+  </select>
+</mapper>

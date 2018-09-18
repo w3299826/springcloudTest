@@ -1,0 +1,23 @@
+server:
+  port: 8762
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: hello-zuul
+
+zuul:
+  sensitive-headers:
+  host:
+    socket-timeout-millis: 10000
+    connect-timeout-millis: 10000
+  routes:
+    hello-server:
+      path: /server/**
+    hello-constumer:
+      path: /constumer/**

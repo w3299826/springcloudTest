@@ -1,0 +1,34 @@
+server:
+  port: 9992
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: hello-constumer
+  datasource:
+    name: t3-ba-np # 
+#============================= JDBC 配置 ==================================
+    driver-class-name: net.sourceforge.jtds.jdbc.Driver
+    url: jdbc:jtds:sybase://172.18.11.56:5000/DB_ATY;charset=UTF-8;appname=t3-service-ba
+    username: sa
+    password: dev@1234
+#============================= DB Pool 配置 ===============================
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: T3BaHikariCP
+      auto-commit: true
+      connection-test-query: select 1
+      connection-timeout: 30000
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      minimum-idle: 5
+      maximum-pool-size: 20
+      read-only: false
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  #type-aliases-package: com.thunisoft.t3.bean  #对应实体类对象
